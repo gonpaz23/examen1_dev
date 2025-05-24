@@ -1,30 +1,22 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
 import 'package:examen1_dev/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets('Prueba de interfaz de calculadora', (WidgetTester tester) async {
+    await tester.pumpWidget(CalculadoraApp());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    // Verificar que la interfaz se muestra
+    expect(find.text('Calculadora Avanzada'), findsOneWidget);
+    expect(find.text('Suma'), findsOneWidget);
+    expect(find.text('Resta'), findsOneWidget);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    // Probar interacción con el botón de suma
+    await tester.tap(find.text('Suma'));
+    await tester.pumpAndSettle(); // Espera a que aparezca el diálogo
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // Verificar que el diálogo aparece
+    expect(find.text('Suma'), findsOneWidget);
+    expect(find.byType(TextField), findsNWidgets(2));
   });
 }
