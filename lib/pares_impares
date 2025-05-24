@@ -16,11 +16,10 @@ void mostrarParesImpares() {
     }
   }
 
-  print('\nNúmeros pares entre $inicio y $fin:');
-  print(pares.join(', '));
-  print('Total de pares: ${pares.length}');
-
   print('\nNúmeros impares entre $inicio y $fin:');
   print(impares.join(', '));
   print('Total de impares: ${impares.length}');
+  print('\nNúmeros pares entre $inicio y $fin:');
+  print(pares.join(', '));
+  print('Total de pares: ${pares.length}');
 }
