@@ -1,0 +1,72 @@
+import 'utilidades';
+import 'constantes';
+
+void mostrarMenuAreas() {
+  while (true) {
+    print('''
+--- CÁLCULO DE ÁREAS GEOMÉTRICAS ---
+1. Círculo
+2. Rectángulo
+3. Triángulo
+4. Cuadrado
+5. Volver al menú principal
+Seleccione una figura (1-5):''');
+
+    final opcion = leerEntero('', min: 1, max: 5);
+
+    switch (opcion) {
+      case 1:
+        calcularAreaCirculo();
+        break;
+      case 2:
+        calcularAreaRectangulo();
+        break;
+      case 3:
+        calcularAreaTriangulo();
+        break;
+      case 4:
+        calcularAreaCuadrado();
+        break;
+      case 5:
+        return;
+    }
+  }
+}
+
+void calcularAreaCirculo() {
+  print('\n--- ÁREA DEL CÍRCULO ---');
+  final radio = leerDouble('Ingrese el radio: ', min: 0);
+  final area = PI * radio * radio;
+  print('Área del círculo = π × r²');
+  print('Área = ${PI.toStringAsFixed(5)} × ${radio.toStringAsFixed(2)}²');
+  print('Área = ${formatearNumero(area)} unidades²');
+}
+
+void calcularAreaRectangulo() {
+  print('\n--- ÁREA DEL RECTÁNGULO ---');
+  final base = leerDouble('Ingrese la base: ', min: 0);
+  final altura = leerDouble('Ingrese la altura: ', min: 0);
+  final area = base * altura;
+  print('Área del rectángulo = base × altura');
+  print('Área = $base × $altura');
+  print('Área = ${formatearNumero(area)} unidades²');
+}
+
+void calcularAreaTriangulo() {
+  print('\n--- ÁREA DEL TRIÁNGULO ---');
+  final base = leerDouble('Ingrese la base: ', min: 0);
+  final altura = leerDouble('Ingrese la altura: ', min: 0);
+  final area = (base * altura) / 2;
+  print('Área del triángulo = (base × altura) / 2');
+  print('Área = ($base × $altura) / 2');
+  print('Área = ${formatearNumero(area)} unidades²');
+}
+
+void calcularAreaCuadrado() {
+  print('\n--- ÁREA DEL CUADRADO ---');
+  final lado = leerDouble('Ingrese la longitud del lado: ', min: 0);
+  final area = lado * lado;
+  print('Área del cuadrado = lado²');
+  print('Área = $lado²');
+  print('Área = ${formatearNumero(area)} unidades²');
+}

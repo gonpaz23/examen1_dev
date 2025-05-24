@@ -1,0 +1,26 @@
+import 'utilidades';
+
+void mostrarParesImpares() {
+  print('\n--- NÚMEROS PARES E IMPARES EN RANGO ---');
+  final inicio = leerEntero('Ingrese el número inicial del rango: ');
+  final fin = leerEntero('Ingrese el número final del rango: ', min: inicio);
+
+  final pares = <int>[];
+  final impares = <int>[];
+
+  for (int i = inicio; i <= fin; i++) {
+    if (i % 2 == 0) {
+      pares.add(i);
+    } else {
+      impares.add(i);
+    }
+  }
+
+  print('\nNúmeros pares entre $inicio y $fin:');
+  print(pares.join(', '));
+  print('Total de pares: ${pares.length}');
+
+  print('\nNúmeros impares entre $inicio y $fin:');
+  print(impares.join(', '));
+  print('Total de impares: ${impares.length}');
+}

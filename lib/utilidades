@@ -1,0 +1,43 @@
+import 'dart:io';
+
+double leerDouble(String mensaje, {double min = double.negativeInfinity}) {
+  while (true) {
+    stdout.write(mensaje);
+    final input = stdin.readLineSync();
+    try {
+      final valor = double.parse(input!);
+      if (valor < min) {
+        print('Error: El valor debe ser mayor o igual a $min');
+        continue;
+      }
+      return valor;
+    } catch (e) {
+      print('Error: Ingrese un número válido');
+    }
+  }
+}
+
+int leerEntero(String mensaje, {int min = -2147483648, int max = 2147483647}) {
+  while (true) {
+    stdout.write(mensaje);
+    final input = stdin.readLineSync();
+    try {
+      final valor = int.parse(input!);
+      if (valor < min || valor > max) {
+        print('Error: El valor debe estar entre $min y $max');
+        continue;
+      }
+      return valor;
+    } catch (e) {
+      print('Error: Ingrese un número entero válido');
+    }
+  }
+}
+
+String formatearNumero(num numero) {
+  if (numero % 1 == 0) {
+    return numero.toStringAsFixed(0);
+  } else {
+    return numero.toStringAsFixed(2);
+  }
+}

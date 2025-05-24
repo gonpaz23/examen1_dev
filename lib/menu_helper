@@ -1,0 +1,55 @@
+import 'operaciones_basicas';
+import 'numeros_primos';
+import 'pares_impares';
+import 'fibonacci';
+import 'areas_geometricas';
+import 'utilidades';
+
+void mostrarMenuPrincipal() {
+  while (true) {
+    print('''
+===== CALCULADORA MATEMÁTICA AVANZADA =====
+1. Suma
+2. Resta
+3. Multiplicación
+4. División
+5. Números Primos en un Rango
+6. Números Pares e Impares en un Rango
+7. Secuencia de Fibonacci
+8. Cálculo de Áreas Geométricas
+9. Salir
+==========================================''');
+
+    final opcion = leerEntero('Seleccione una opción (1-9): ', min: 1, max: 9);
+
+    switch (opcion) {
+      case 1:
+        realizarSuma();
+        break;
+      case 2:
+        realizarResta();
+        break;
+      case 3:
+        realizarMultiplicacion();
+        break;
+      case 4:
+        realizarDivision();
+        break;
+      case 5:
+        mostrarNumerosPrimos();
+        break;
+      case 6:
+        mostrarParesImpares();
+        break;
+      case 7:
+        mostrarFibonacci();
+        break;
+      case 8:
+        mostrarMenuAreas();
+        break;
+      case 9:
+        print('¡Hasta luego!');
+        return;
+    }
+  }
+}

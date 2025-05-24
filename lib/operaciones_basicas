@@ -1,0 +1,33 @@
+import 'utilidades';
+
+void realizarSuma() {
+  print('\n--- SUMA ---');
+  final num1 = leerDouble('Ingrese el primer número: ');
+  final num2 = leerDouble('Ingrese el segundo número: ');
+  final resultado = num1 + num2;
+  print('Resultado: $num1 + $num2 = ${formatearNumero(resultado)}');
+}
+
+void realizarResta() {
+  print('\n--- RESTA ---');
+  final num1 = leerDouble('Ingrese el primer número: ');
+  final num2 = leerDouble('Ingrese el segundo número: ');
+  final resultado = num1 - num2;
+  print('Resultado: $num1 - $num2 = ${formatearNumero(resultado)}');
+}
+
+void realizarMultiplicacion() {
+  print('\n--- MULTIPLICACIÓN ---');
+  final num1 = leerDouble('Ingrese el primer número: ');
+  final num2 = leerDouble('Ingrese el segundo número: ');
+  final resultado = num1 * num2;
+  print('Resultado: $num1 × $num2 = ${formatearNumero(resultado)}');
+}
+
+void realizarDivision() {
+  print('\n--- DIVISIÓN ---');
+  final num1 = leerDouble('Ingrese el dividendo: ');
+  final num2 = leerDouble('Ingrese el divisor (no puede ser cero): ', min: 0.0001);
+  final resultado = num1 / num2;
+  print('Resultado: $num1 ÷ $num2 = ${formatearNumero(resultado)}');
+}
